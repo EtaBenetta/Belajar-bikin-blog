@@ -77,89 +77,51 @@
                     <span>This Month</span>
                 </div>
                 <div style="display:flex ; flex-direction: row; height: 100%;">
-                    <div style="display:flex ; flex-direction: column;  width:50% ; height: 100%;">
-                        <div style="display:inline-block ;">
-                            <span style="background-color:#DFF1F0 ; border-radius: 3px; padding: 2px;"> 
-                                Travel
-                            </span>
-                        </div>
-                        <div style="margin-top:8px ; width: 334px; display: inline-block; ">
-                            <span style="font-weight: 700; font-size: 27px;">
-                                Set Video Playback Speed with  Javascript
-                            </span>
-
-                        </div>
-                        <div style="height: 229px; width: 401px; background-color:#D9D9D9; border-radius:7px; margin-top: 24px; display: inline-block;">
-                        
-                        </div>
-                        <div style="margin-top: 24px; color:#777777 ; font-size: 12px; display: inline-block;">
-                            <img src="Aset/image/girl.png" height="18px" width="18px" />
-                            <span style=" margin-left: 8px;">
-                                Jenny Kiaa
-                            </span>
-                            <span style="margin-left:10px ; margin-right:10px;">
-                                |
-                            </span>                    
-                            <img src="Aset/image/Calender.svg" height="12px" width="12px" >
-                            <span>
-                                02 December 2022
-                            </span>
-                            <span style="margin-left:10px ; margin-right:10px;">
-                                |
-                            </span>
-                            <img src="Aset/image/Clock.svg" height="12px" width="12px">
-                            <span>
-                                3 Min. To Read
-                            </span>
-                         
-                        </div>
-                        <p style="color: #555555 ; width: 401px; display: inline-block; ">
-                            Did you come here for something in particular or just general Riker-bashing? And blowing into
-                        </p>
-                    </div>
-                    <div style="display:flex ; flex-direction: column;  width:50% ; height: 100%;">
-                        <div style="display:inline-block ; ">
-                            <span style="background-color:#00AAA1 ; color: white; border-radius: 3px; padding: 2px;"> 
-                                Travel
-                            </span>
-                        </div>
-                        <div style="margin-top:8px ; width: 334px; display: inline-block; ">
-                            <span style="font-weight: 700; font-size: 27px; ">
-                                Design Is The Mix Of Emotions
-                            </span>
-        
-                        
-                        </div>
-
-                        <div style="height: 229px; width: 401px; background-color:#D9D9D9; border-radius:7px; margin-top: 24px; display: inline-block;">
+                    {% for x in myblogs %}
+                        <div style="display:flex ; flex-direction: column;  width:50% ; height: 100%;">
+                            <div style="display:inline-block ; ">
+                                <span style="background-color:#00AAA1 ; color: white; border-radius: 3px; padding: 2px;"> 
+                                    Travel
+                                </span>
+                            </div>
+                            <div style="margin-top:8px ; width: 334px; display: inline-block; ">
+                                <span style="font-weight: 700; font-size: 27px; ">
+                                {{x.title}}
+                                </span>
+            
                             
+                            </div>
+
+                            <div style="height: 229px; width: 401px; background-color:#D9D9D9; border-radius:7px; margin-top: 24px; display: inline-block;">
+                                
+                                <img src="{{x.image}}"/>
+                            </div>
+                            <div style="margin-top: 24px; color:#777777 ; font-size: 12px; display: inline-block; ">
+                                <img src="Aset/image/girl.png" height="18px" width="18px" />
+                                <span style=" margin-left: 8px;">
+                                   {{x.writer_name}} 
+                                </span>
+                                <span style="margin-left:10px ; margin-right:10px;">
+                                    |
+                                </span>                    
+                                <img src="Aset/image/Calender.svg" height="12px" width="12px" >
+                                <span>
+                                    {{x.date}}
+                                </span>
+                                <span style="margin-left:10px ; margin-right:10px;">
+                                    |
+                                </span>
+                                <img src="Aset/image/Clock.svg" height="12px" width="12px">
+                                <span>
+                                    {{x.min_to_read}} Min. To Read
+                                </span>
                             
+                            </div>
+                            <p style="color: #555555 ; width: 401px; display: inline-block;  overflow: hidden; height: 40px; ">
+                                {{x.content}}
+                            </p>
                         </div>
-                        <div style="margin-top: 24px; color:#777777 ; font-size: 12px; display: inline-block; ">
-                            <img src="Aset/image/girl.png" height="18px" width="18px" />
-                            <span style=" margin-left: 8px;">
-                                Jenny Kiaa
-                            </span>
-                            <span style="margin-left:10px ; margin-right:10px;">
-                                |
-                            </span>                    
-                            <img src="Aset/image/Calender.svg" height="12px" width="12px" >
-                            <span>
-                                02 December 2022
-                            </span>
-                            <span style="margin-left:10px ; margin-right:10px;">
-                                |
-                            </span>
-                            <img src="Aset/image/Clock.svg" height="12px" width="12px">
-                            <span>
-                                3 Min. To Read
-                            </span>
-                         
-                        </div>
-                        <p style="color: #555555 ; width: 401px; display: inline-block; ">
-                            Did you come here for something in particular or just general Riker-bashing? And blowing into
-                        </p>
-                    </div>
+                    {% endfor %}
                 </div>
 
                 
