@@ -4,7 +4,7 @@ from datetime import date
 class Blogs(models.Model):
   title = models.CharField(max_length=255)
   content = models.TextField()
-  image = models.ImageField()
+  image = models.ImageField(upload_to='media/images/')
   writer_name = models.CharField(max_length=255)
   date = models.DateField(default=date.today)
   min_to_read = models.IntegerField()
@@ -17,6 +17,6 @@ class Authors(models.Model):
   twitter = models.CharField(max_length=255)
   facebook = models.CharField(max_length=255)
   instagram = models.CharField(max_length=255)
-  image = models.ImageField()
+  image = models.ImageField(upload_to='media/images/')
   def __str__(self):
     return self.name

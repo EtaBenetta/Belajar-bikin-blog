@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,29 +30,29 @@
             <div style="display:inline-block ; margin-left: 0px; ">
             <ul>
                 <li>
-                    <a href="index.html">Homepages </a>
+                    <a href="/blogs">Homepages </a>
                 </li>
                 <li>
-                    <a href="about.html">About </a>
+                    <a href="/blogs/about">About </a>
                 </li>
                 <li>
-                    <a href="catogories.html">Catogories </a>
+                    <a href="/blogs/categories">Catogories </a>
                 </li>
                 <li>
-                    <a href="pages.html"> Pages </a>
+                    <a href="/blogs/pages"> Pages </a>
                     
                 </li>
 
             </ul>
             </div>
             <div class="navbar" style=" margin-right: 19%;">
-                <img src="Aset/image/notebook.svg"/>
+                <img src="{% static 'notebook.svg' %}"/>
             </div>
             <div class="navbar" style=" margin-right: 30px;  ">
-                <img src="Aset/image/Group 2124.svg"/>
+                <img src="{% static 'Group 2124.svg' %}"/>
             </div>
             <div class="navbar" style="  margin-right: 71px; ">
-                <img src="Aset/image/Vector.svg"/>
+                <img src="{% static 'Vector.svg' %}"/>
             </div>
             <div class="navbar" style="  margin-right: 62px; ">
                 <a href="contact.html">Contact</a>
@@ -62,10 +63,10 @@
                 </span>
             </div>
             <div class="navbar" style="  margin-right: 11px; ">
-                <img src="Aset/image/Sun.svg"/>
+                <img src="{% static 'Sun.svg' %}"/>
             </div>
             <div class="navbar" style="  margin-right: 5px; ">
-                <img src="Aset/image/Moon.svg"/>
+                <img src="{% static 'Moon.svg' %}"/>
             </div>
         </div><!--navbar-->
         <div style="background-color:#F2F8F7 ; height: auto ; width: 100%; padding-top: 80px;display: flex; flex-direction: row;  ">
@@ -94,24 +95,24 @@
 
                             <div style="height: 229px; width: 401px; background-color:#D9D9D9; border-radius:7px; margin-top: 24px; display: inline-block;">
                                 
-                                <img src="{{x.image}}"/>
+                                <img src="http://127.0.0.1:8000/media/{{x.image}}" width="401px" height="229px"/>
                             </div>
                             <div style="margin-top: 24px; color:#777777 ; font-size: 12px; display: inline-block; ">
-                                <img src="Aset/image/girl.png" height="18px" width="18px" />
+                                <img src="{% static 'wikipedia.jpg' %}" height="18px" width="18px" style="border-radius: 18px; object-fit: cover;" />
                                 <span style=" margin-left: 8px;">
                                    {{x.writer_name}} 
                                 </span>
                                 <span style="margin-left:10px ; margin-right:10px;">
                                     |
                                 </span>                    
-                                <img src="Aset/image/Calender.svg" height="12px" width="12px" >
+                                <img src="{% static 'Calender.svg' %}" height="12px" width="12px" >
                                 <span>
                                     {{x.date}}
                                 </span>
                                 <span style="margin-left:10px ; margin-right:10px;">
                                     |
                                 </span>
-                                <img src="Aset/image/Clock.svg" height="12px" width="12px">
+                                <img src="{% static 'Clock.svg' %}" height="12px" width="12px">
                                 <span>
                                     {{x.min_to_read}} Min. To Read
                                 </span>
@@ -147,7 +148,7 @@
 
                     </div>
                     <div style="margin-top: 24px; color:#777777 ; font-size: 12px; display: inline-block; ">
-                        <img src="Aset/image/girl.png" height="18px" width="18px" />
+                        <img src="{% static 'girl.png' %}" height="18px" width="18px" />
                         <span style=" margin-left: 8px;">
                             Jenny Kiaa
                         </span>
@@ -185,7 +186,7 @@
 
                     </div>
                     <div style="margin-top: 24px; color:#777777 ; font-size: 12px; display: inline-block; ">
-                        <img src="Aset/image/girl.png" height="18px" width="18px" />
+                        <img src="{% static 'girl.png' %}" height="18px" width="18px" />
                         <span style=" margin-left: 8px;">
                             Jenny Kiaa
                         </span>
@@ -233,7 +234,7 @@
     
                         </div>
                         <div style="margin-top: 24px; color:#777777 ; font-size: 12px; display: inline-block; ">
-                            <img src="Aset/image/girl.png" height="18px" width="18px" />
+                            <img src="{% static 'girl.png' %}" height="18px" width="18px" />
                             <span style=" margin-left: 8px;">
                                 Jenny Kiaa
                             </span>
@@ -276,7 +277,7 @@
     
                         </div>
                         <div style="margin-top: 24px; color:#777777 ; font-size: 12px; display: inline-block; ">
-                            <img src="Aset/image/girl.png" height="18px" width="18px" />
+                            <img src="{% static 'girl.png' %}" height="18px" width="18px" />
                             <span style=" margin-left: 8px;">
                                 Jenny Kiaa
                             </span>
@@ -319,7 +320,7 @@
     
                         </div>
                         <div style="margin-top: 24px; color:#777777 ; font-size: 12px; display: inline-block; ">
-                            <img src="Aset/image/girl.png" height="18px" width="18px" />
+                            <img src="{% static 'girl.png' %}" height="18px" width="18px" />
                             <span style=" margin-left: 8px;">
                                 Jenny Kiaa
                             </span>
@@ -371,7 +372,7 @@
     
                         </div>
                         <div style="margin-top: 24px; color:#777777 ; font-size: 12px; display: inline-block; ">
-                            <img src="Aset/image/girl.png" height="18px" width="18px" />
+                            <img src="{% static 'girl.png' %}" height="18px" width="18px" />
                             <span style=" margin-left: 8px;">
                                 Jenny Kiaa
                             </span>
@@ -414,7 +415,7 @@
     
                         </div>
                         <div style="margin-top: 24px; color:#777777 ; font-size: 12px; display: inline-block; ">
-                            <img src="Aset/image/girl.png" height="18px" width="18px" />
+                            <img src="{% static 'girl.png' %}" height="18px" width="18px" />
                             <span style=" margin-left: 8px;">
                                 Jenny Kiaa
                             </span>
@@ -615,7 +616,7 @@
 
                 <div style="display: flex; justify-content: center; gap: 16px;">
                     <button style="background-color: #FFFFFF; border: 1px #FFFFFF ; border-radius: 5px; padding-top: 13px; padding-bottom: 13px; padding-right: 26px; padding-left: 26px;">
-                        <img src="Aset/image/Arrow kiri .svg" alt="panah kiri" />
+                        <img src="{% static 'Arrow kiri .svg' %}" alt="panah kiri" />
                         <span style="color: #666666;">
                             Prev.
                         </span>
@@ -643,7 +644,7 @@
                         <span style="color: #FFFFFF;">
                             Next
                         </span>
-                        <img src="Aset/image/Arrow kanan.svg" alt="panah kanan"/>
+                        <img src="{% static 'Arrow kanan.svg' %}" alt="panah kanan"/>
                     </button>
 
 
@@ -660,32 +661,36 @@
                 <div style="display:flex ; flex-direction: column; gap: 45px;"> <!--author list-->
 
                     {% for x in myauthors %}
-                        <div style="display: flex; flex-direction:row; gap: 24px;"> <!--author-->
-                            <div style="background-color: #D9D9D9; width: 80px; height: 80px; border-radius: 80px; ">
 
-                            </div>
-                            
-                            <div>
+                        <a href="/blogs/author/{{x.id}}">
+
+                            <div style="display: flex; flex-direction:row; gap: 24px;"> <!--author-->
+                                <div style="background-color: #D9D9D9; width: 80px; height: 80px; border-radius: 80px; ">
+    
+                                </div>
+                                
                                 <div>
-                                    <span style="font-size: 17px ; font-weight: 600;">{{x.name}}</span>
-                                </div>
-                                <div style="margin-top:6px ; margin-bottom: 16px;  width: 187px;">
-                                    <span style="color: #666666; font-size: 12px; font-weight: 300; width: 187px;">{{x.bio}}</span>
-                                </div> 
-                                <div style="display: flex; flex-direction:row ;gap: 10px;">
-                                    <a href = {{x.facebook}}>
-                                        <img src="Aset/image/facebook.svg" height="20px" width="20px"/>
-                                    </a>
-                                    <a href = {{x.twitter}}>
-                                        <img src="Aset/image/Twitter.svg" height="20px" width="20px"/>
-                                    </a>
-                                    <a href = {{x.instagram}}>
-                                        <img src="Aset/image/instagram.svg" height="20px" width="20px"/>
-                                    </a>
-                                    
+                                    <div>
+                                        <span style="font-size: 17px ; font-weight: 600;">{{x.name}}</span>
+                                    </div>
+                                    <div style="margin-top:6px ; margin-bottom: 16px;  width: 187px;">
+                                        <span style="color: #666666; font-size: 12px; font-weight: 300; width: 187px;">{{x.bio}}</span>
+                                    </div> 
+                                    <div style="display: flex; flex-direction:row ;gap: 10px;">
+                                        <a href = {{x.facebook}}>
+                                            <img src="Aset/image/facebook.svg" height="20px" width="20px"/>
+                                        </a>
+                                        <a href = {{x.twitter}}>
+                                            <img src="Aset/image/Twitter.svg" height="20px" width="20px"/>
+                                        </a>
+                                        <a href = {{x.instagram}}>
+                                            <img src="Aset/image/instagram.svg" height="20px" width="20px"/>
+                                        </a>
+                                        
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
 
                     {% endfor %}
                 </div>

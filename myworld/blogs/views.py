@@ -15,4 +15,11 @@ def index(request):
   }
 
   return HttpResponse(template.render(context, request))
-  
+
+def author(request, id):
+  myauthor = Authors.objects.get(id=id)
+  template = loader.get_template('about-author.html')
+  context = {
+    'myauthor': myauthor,
+  }
+  return HttpResponse(template.render(context, request))
