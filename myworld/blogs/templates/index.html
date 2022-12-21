@@ -1,74 +1,6 @@
+{% extends 'master.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Home</title>
-        <style>
-            ul{
-            list-style-type:none;
-            margin:0;
-            padding:0;
-            margin-left: 152px;
-            padding-top: 31px;
-            }
-            li{
-                display: inline;
-                margin-right: 40px;
-            }
-            body{
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            }
-            .navbar{
-                margin-top: 30px;
-                display: inline-block;
-            }
-
-        </style>
-    </head>
-    <body>
-        <div style="background-color: #E8F3EF ; width:100%; height: 70px;  display: flex;">
-            <div style="display:inline-block ; margin-left: 0px; ">
-            <ul>
-                <li>
-                    <a href="/blogs">Homepages </a>
-                </li>
-                <li>
-                    <a href="/blogs/about">About </a>
-                </li>
-                <li>
-                    <a href="/blogs/categories">Catogories </a>
-                </li>
-                <li>
-                    <a href="/blogs/pages"> Pages </a>
-                    
-                </li>
-
-            </ul>
-            </div>
-            <div class="navbar" style=" margin-right: 19%;">
-                <img src="{% static 'notebook.svg' %}"/>
-            </div>
-            <div class="navbar" style=" margin-right: 30px;  ">
-                <img src="{% static 'Group 2124.svg' %}"/>
-            </div>
-            <div class="navbar" style="  margin-right: 71px; ">
-                <img src="{% static 'Vector.svg' %}"/>
-            </div>
-            <div class="navbar" style="  margin-right: 62px; ">
-                <a href="contact.html">Contact</a>
-            </div>
-            <div class="navbar" style="  margin-right: 53px;  ">
-                <span>
-                    En
-                </span>
-            </div>
-            <div class="navbar" style="  margin-right: 11px; ">
-                <img src="{% static 'Sun.svg' %}"/>
-            </div>
-            <div class="navbar" style="  margin-right: 5px; ">
-                <img src="{% static 'Moon.svg' %}"/>
-            </div>
-        </div><!--navbar-->
+{% block mycontent %}
         <div style="background-color:#F2F8F7 ; height: auto ; width: 100%; padding-top: 80px;display: flex; flex-direction: row;  ">
            
             <div style="display:flex ; flex-direction: column; ; width:70% ; height: 100%; ">
@@ -82,11 +14,11 @@
                         <div style="display:flex ; flex-direction: column;  width:50% ; height: 100%;">
                             <div style="display:inline-block ; ">
                                 <span style="background-color:#00AAA1 ; color: white; border-radius: 3px; padding: 2px;"> 
-                                    Travel
+                                    {{x.category.name}}
                                 </span>
                             </div>
-                            <div style="margin-top:8px ; width: 334px; display: inline-block; ">
-                                <span style="font-weight: 700; font-size: 27px; ">
+                            <div style="margin-top:8px ; width: 334px; display: inline-block; height: 30px; overflow-x: hidden; ">
+                                <span style="font-weight: 700; font-size: 27px;  ">
                                 {{x.title}}
                                 </span>
             
@@ -98,9 +30,9 @@
                                 <img src="http://127.0.0.1:8000/media/{{x.image}}" width="401px" height="229px"/>
                             </div>
                             <div style="margin-top: 24px; color:#777777 ; font-size: 12px; display: inline-block; ">
-                                <img src="{% static 'wikipedia.jpg' %}" height="18px" width="18px" style="border-radius: 18px; object-fit: cover;" />
+                                <img src="http://127.0.0.1:8000/media/{{x.author.image}}" height="18px" width="18px" style="border-radius: 18px; object-fit: cover;" />
                                 <span style=" margin-left: 8px;">
-                                   {{x.writer_name}} 
+                                   {{x.author.name}} 
                                 </span>
                                 <span style="margin-left:10px ; margin-right:10px;">
                                     |
@@ -666,7 +598,7 @@
 
                             <div style="display: flex; flex-direction:row; gap: 24px;"> <!--author-->
                                 <div style="background-color: #D9D9D9; width: 80px; height: 80px; border-radius: 80px; ">
-    
+                                    <img src="http://127.0.0.1:8000/media/{{x.image}}" width="80px" height="80px" style="object-fit: cover; border-radius: 80px;" />
                                 </div>
                                 
                                 <div>
@@ -678,13 +610,13 @@
                                     </div> 
                                     <div style="display: flex; flex-direction:row ;gap: 10px;">
                                         <a href = {{x.facebook}}>
-                                            <img src="Aset/image/facebook.svg" height="20px" width="20px"/>
+                                            <img src="{% static 'facebook.svg' %}" height="20px" width="20px"/>
                                         </a>
                                         <a href = {{x.twitter}}>
-                                            <img src="Aset/image/Twitter.svg" height="20px" width="20px"/>
+                                            <img src="{% static 'Twitter.svg' %}" height="20px" width="20px"/>
                                         </a>
                                         <a href = {{x.instagram}}>
-                                            <img src="Aset/image/instagram.svg" height="20px" width="20px"/>
+                                            <img src="{% static 'instagram.svg' %}" height="20px" width="20px"/>
                                         </a>
                                         
                                     </div>
@@ -715,58 +647,20 @@
                 </div>
 
                 <div style="display: flex; flex-direction: column; margin-top: 40px; font-size: 15px; font-weight: 500; color: #1C1C1C;">
+                    {% for categ in categories %}
                     <div style="display: flex; flex-direction: row; justify-content: space-between; padding-top: 12px; padding-bottom: 12px;">
                         <span style="text-transform:capitalize ;">
-                            lifestyle
+                            {{categ.name}}
                         </span>
                         <span style="text-transform:capitalize ;">
-                            09
+                           {{categ.blog_set.count}} 
                         </span>
                     </div>
                     <div style="width:100% ; border-top: 1px dashed #D1E7E5;">
                     </div>
+                    {% endfor %}
+                    
 
-                    <div style="display: flex; flex-direction: row; justify-content: space-between; padding-top: 12px; padding-bottom: 12px;">
-                        <span style="text-transform:capitalize ;">
-                            travel
-                        </span>
-                        <span style="text-transform:capitalize ;">
-                            05
-                        </span>
-                    </div>
-                    <div style="width:100% ; border-top: 1px dashed #D1E7E5;">
-                    </div>
-
-                    <div style="display: flex; flex-direction: row; justify-content: space-between; padding-top: 12px; padding-bottom: 12px;">
-                        <span style="text-transform:capitalize ;">
-                            food
-                        </span>
-                        <span style="text-transform:capitalize ;">
-                            09
-                        </span>
-                    </div>
-                    <div style="width:100% ; border-top: 1px dashed #D1E7E5;">
-                    </div>
-
-                    <div style="display: flex; flex-direction: row; justify-content: space-between; padding-top: 12px; padding-bottom: 12px;">
-                        <span style="text-transform:capitalize ;">
-                            healthcare
-                        </span>
-                        <span style="text-transform:capitalize ;">
-                            10
-                        </span>
-                    </div>
-                    <div style="width:100% ; border-top: 1px dashed #D1E7E5;">
-                    </div>
-
-                    <div style="display: flex; flex-direction: row; justify-content: space-between; padding-top: 12px; padding-bottom: 12px;">
-                        <span style="text-transform:capitalize ;">
-                            technology
-                        </span>
-                        <span style="text-transform:capitalize ;">
-                            03
-                        </span>
-                    </div>
                     
                 </div>
 
@@ -881,69 +775,4 @@
 
             </div>
         </div>
-        <div style="background-color:#F2F8F7 ; width: 100%; margin-top: 50px; padding-top: 70px; ">
-            <div style="display: flex; flex-direction:row ; justify-content: space-evenly;">
-                <div>
-                    <div>
-                        <img src="Aset/image/notebook.svg" width="119px" height="27px"/>
-                    </div>
-                    <div style="margin-top: 24px;">
-                        <span style="font-size: 15px; font-weight: 400; color: #555555; display: flex; flex-wrap: wrap; width: 236px; line-height: 22px;">
-                            Did you come here for something in particular or just general Riker
-                        </span>
-                    </div>
-                </div>
-                <div style="display:flex ; flex-direction: column;">
-                    <span style="font-size: 17px; font-weight: 600; margin-bottom: 24px;">
-                        Blog
-                    </span>
-                    <div style="color:#555555 ; display:flex ; flex-direction: column; gap: 11px; ">
-                    <span>Travel</span>
-                    <span>Technology</span>
-                    <span>Lifestyle</span>
-                    <span>Fashion</span>
-                    <span>Bussiness</span>
-                    </div>
-                </div>
-                <div style="display:flex ; flex-direction: column;">
-                    <span style="font-size: 17px; font-weight: 600; margin-bottom: 24px;">
-                        Quick Links
-                    </span>
-                    <div style="color:#555555 ; display:flex ; flex-direction: column; gap: 11px; ">
-                    <span>FAQ</span>
-                    <span>Terms & Conditions</span>
-                    <span>Support</span>
-                    <span>Privacy Policy</span>
-                    </div>
-                </div>
-                <div style="display:flex ; flex-direction: column;">
-                    <span style="font-size: 17px; font-weight: 600; margin-bottom: 24px; ">
-                        Subscribe For Newsletter
-                    </span>
-                    <div style="display: flex; flex-direction: row; width: 100%;">
-                        <input style="background-color:#DFF1F0 ; border:0px; border-radius: 6px 0px 6px 0px; padding-top: 15px; padding-bottom: 15px; padding-left: 22px; padding-right: 22px" placeholder="Your Email"/>
-                        <button style="background-color: #00AAA1; border: 0px; border-radius: 0px 6px 6px 0px; font-size: 15px; font-weight: 400; color: #FFFFFF; padding-top: 15px; padding-bottom: 15px; padding-left: 42px; padding-right: 42px;">
-                            Subscribe
-                        </button>
-                    </div>
-
-                    <span style="font-size: 17px; font-weight: 600; margin-bottom: 24px; margin-top: 42px; ">
-                        Follow On:
-                    </span>
-                    <div style="gap: 18px; display:flex ; flex-direction: row;">
-                        <img src="Aset/image/Blue Twitter .svg" height="24px" width="24px"/>
-                        <img src="Aset/image/Gray Facebook .svg" height="24px" width="24px"/>
-                        <img src="Aset/image/Pinterest.svg" height="24px" width="24px"/>
-                        <img src="Aset/image/Gray Instagram.svg" height="24px" width="24px"/>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align:center ; margin-top:84px ;">
-                Copyright 2022 
-            </div>
-        </div>
-
-            
-
-    </body>
-</html>
+{% endblock %}
